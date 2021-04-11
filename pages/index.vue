@@ -26,8 +26,22 @@
 </template>
 
 <script>
+import { queryArticles } from '~/assets/apollo/article'
 export default {
   name: 'Index',
+  data() {
+    return {
+      articles: [],
+    }
+  },
+  apollo: {
+    articles: {
+      query: queryArticles,
+      update(data) {
+        return data.articles
+      },
+    },
+  },
 }
 </script>
 

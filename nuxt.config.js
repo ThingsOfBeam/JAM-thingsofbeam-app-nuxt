@@ -33,7 +33,6 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/composition-api',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -60,8 +59,8 @@ export default {
       default: {
         httpEndpoint:
           process.env.NODE_ENV !== 'production'
-            ? 'https://thingsofbeam-strapi-develop.herokuapp.com/'
-            : 'https://thingsofbeam-strapi.herokuapp.com/',
+            ? 'https://thingsofbeam-strapi-develop.herokuapp.com/graphql'
+            : 'https://thingsofbeam-strapi.herokuapp.com/graphql',
       },
     },
   },

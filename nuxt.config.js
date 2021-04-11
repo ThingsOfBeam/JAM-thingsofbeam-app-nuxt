@@ -15,7 +15,10 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
-
+  generate: {
+    // choose to suit your project
+    interval: 2000,
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
@@ -30,6 +33,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/composition-api',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -38,6 +42,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/apollo',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -50,6 +55,16 @@ export default {
     },
   },
 
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint:
+          process.env.NODE_ENV !== 'production'
+            ? 'https://thingsofbeam-strapi-develop.herokuapp.com/'
+            : 'https://thingsofbeam-strapi.herokuapp.com/',
+      },
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }

@@ -14,25 +14,26 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    '@/assets/main.scss', // SCSS file in the project
+  ],
   generate: {
     // choose to suit your project
     interval: 2000,
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/fontawesome'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/vuetify',
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -42,8 +43,29 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
+    'nuxt-webfontloader',
+    '@nuxtjs/markdownit',
   ],
-
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+  },
+  webfontloader: {
+    google: {
+      families: ['Kanit'],
+    },
+  },
+  vuetify: {
+    customVariables: ['@/assets/variables.scss'],
+    defaultAssets: {
+      icons: 'fa',
+    },
+    treeShake: true,
+    options: {
+      customProperties: true,
+    },
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
